@@ -62,19 +62,17 @@ Application URL: [http://ec2-52-14-198-42.us-east-2.compute.amazonaws.com/](http
 
   Now add the public keys into the authorized_keys file.
 
-
-  Open the sshd_config file.
-
-
-  `sudo nano etc/ssh/sshd_config `
-
   #### Source : [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys--2)
 
 
 ### 4. Change the SSH port from 22 to 2200 and disable root login and password authentication.
 
 
-  Find and set the following to this:-
+  Open the sshd_config file:
+  
+  `sudo nano /etc/ssh/sshd_config`
+  
+  Set the following to this:-
 
 
   `Port 2200`
@@ -90,19 +88,31 @@ Application URL: [http://ec2-52-14-198-42.us-east-2.compute.amazonaws.com/](http
   Now login to the user 'grader' 
 
 
-  `ssh -i [privateKeyFilename] grader@52.14.198.42`
+  `ssh -i [private-key] grader@52.14.198.42`
 
 ### 5. Configure the UFW Firewall and enable it
 
+  Check ufw status:
+  
+  `sudo ufw status verbose`
+  
+  Block incoming connections
+
   `sudo ufw default deny incoming`
+  
+  Allow outgoing connections
 
   `sudo ufw default allow outgoing`
+  
+  Allow connection to Port 2200
 
   `sudo ufw allow 2200/tcp`
+  
+  Allow connections to HTTP
 
   `sudo ufw allow www`
 
-  `sudo ufw allow ntp`
+  Enable UFW firewall
 
   `sudo ufw enable`
 
