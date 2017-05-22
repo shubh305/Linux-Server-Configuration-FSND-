@@ -187,15 +187,25 @@ Application URL: [http://ec2-52-14-198-42.us-east-2.compute.amazonaws.com/](http
   Create user and database catalog
 
   `sudo adduser catalog`
+  
   `sudo passwd catalog`
+  
   `sudo su postgres`
+  
   `psql`
+  
   `CREATE USER catalog; WITH PASSWORD '{password}'`
+  
   `CREATE DATABASE catalog;`
-  `\c catalog_app;`
+  
+  `\c catalog;`
+  
   ` ALL ON SCHEMA public FROM public;`
+  
   `GRANT ALL ON SCHEMA public TO catalog;`
+  
   `\q`
+  
   `exit`
 
   Change database from SQLite to PostreSQL in catalog.py, database_setup.py and lotsofcategories.py
