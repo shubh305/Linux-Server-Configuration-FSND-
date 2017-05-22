@@ -209,7 +209,8 @@ Application URL: [http://ec2-52-14-198-42.us-east-2.compute.amazonaws.com/](http
   `exit`
 
   Change database from SQLite to PostreSQL in catalog.py, database_setup.py and lotsofcategories.py
-  engine = create_engine('postgresql://catalog:{{password}}@localhost/catalog')
+  
+  `engine = create_engine('postgresql://catalog:{{password}}@localhost/catalog')`
 
   #### Source : [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-secure-postgresql-on-an-ubuntu-vps)
 
